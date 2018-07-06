@@ -1,0 +1,87 @@
+body
+{
+	font-family: GillSans, Proxima Nova Alt, Bold, sans-serif;
+	margin:0;
+	padding:0;
+}
+h2
+{
+	
+	color:rgb(38,47,145); 
+	margin-right:10px;
+	text-align:center;
+	font-size:8vh;
+}
+.container  
+{
+	display: flex;
+	position: fixed;
+	top:100px;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.container .row 
+{
+	margin: 0 auto;
+}
+.them_btn
+{
+	width:140px;
+	border-radius:40px;
+	color:white;
+}
+#input_textarea
+{
+	padding-left:20px;
+	border-radius:40px;
+	background-color:rgb(248,248,247);
+	cursor:pointer;
+	border-bottom-style:none;
+	margin-left:-10px;
+}
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]), 
+input[type=password]:not(.browser-default):focus:not([readonly]), 
+input[type=email]:not(.browser-default):focus:not([readonly]), 
+input[type=url]:not(.browser-default):focus:not([readonly]), 
+input[type=time]:not(.browser-default):focus:not([readonly]), 
+input[type=date]:not(.browser-default):focus:not([readonly]), 
+input[type=datetime]:not(.browser-default):focus:not([readonly]), 
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]), 
+input[type=tel]:not(.browser-default):focus:not([readonly]), 
+input[type=number]:not(.browser-default):focus:not([readonly]), 
+input[type=search]:not(.browser-default):focus:not([readonly]), 
+textarea.materialize-textarea:focus:not([readonly])
+{
+	border-bottom:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+#input_textarea::-webkit-input-placeholder
+{
+	letter-spacing: 1px;
+	padding-left:2px;
+}
+.card-panel
+{
+	border-radius:10px; 
+	padding-bottom:2px;
+	/* Safari 5.1 to 6.0 */
+	background: -webkit-repeating-linear-gradient(#7b4397, #dc2430);
+	/* Opera 11.1 to 12.0 */
+	background: -o-repeating-linear-gradient(#7b4397, #dc2430);
+	/* Firefox 3.6 to 15 */
+	background: -moz-repeating-linear-gradient(#7b4397, #dc2430);
+	/* Standard syntax */
+	background-image: repeating-linear-gradient(to top, #7b4397, #dc2430);
+} 
+@media(max-width:768px)
+{
+	h2
+	{
+		text-align:center;
+		font-size:5vh;
+	}
+}

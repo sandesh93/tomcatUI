@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="static/css/login.css"  media="screen,projection"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+<body class="blue-grey lighten-4">
+	<h2>AppsOne Tomcat Restart Page</h2>	
+	<div class="container">
+		<div class="row">
+			<div class="col offset-s1 s10 center-align">
+				<div class="card-panel z-depth-5"data-tilt>
+					<div class="row">
+						<div class="col s12 center-align">
+							<img src="static/images/icon2.png" class="responsive-img circle">
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col s12 center-align">
+						    <form action="" method="post">
+							<input type="text" id="input_textarea" name="username" value="{{ request.form.username }}" placeholder="Username">
+							<input type="password" id="txtPassword" name="password" value="{{ request.form.password }}" placeholder="Password">
+							{% if error %}
+							<p class="error"><strong>Error:</strong> {{ error }}
+							{% endif %}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s10 offset-s1 center-align">
+							<button class="btn large-btn waves-effect waves-light them_btn hoverable" value="Login" style="background-color:rgb(0,95,255);" type="submit">Log in</button>
+							</Form>
+						</div>
+					</div><br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="static/js/materialize.min.js"></script>
+	<script type="text/javascript" src="static/js/tilt.jquery.min.js"></script>
+
+	<script type="text/javascript" src="static/js/string.js"></script>
+	<script type="text/javascript" class="col s12 center-align" >
+	
+	$('#txtPassword').change(function(e){
+		var encodedPassword = Base64.encode($(this).val());
+		$(this).val(encodedPassword);
+	})
+	
+	</script>
+</body>
+</html>

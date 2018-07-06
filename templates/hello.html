@@ -1,0 +1,108 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="static/css/after_login.css" media="screen,projection"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="static/js/jquery-3.2.1.js"></script>
+<style>
+.row{
+margin-top:300px;
+}
+</style>
+    </head>
+	
+<body class="blue-grey lighten-4">
+<script>
+            $(function()
+            {
+                $('#clickme').click(function(){
+                    $('#show').text("");
+                    $('#show').text("");
+                    alert('Shutting Down tomcat . Please Wait !!');
+                    $('#show').text("Shutdown in progress ...");
+                    $.ajax({
+                        url: "/stop",
+                        type: "POST",
+                        datatype:"text",
+                        success: function(response){
+                          //alert("Tomcat restart script resturns "+response.message);
+                         // alert("Tomcat restart Successful !!!");
+                        $("#show").text(response);
+                       // alert(resonse)
+                        },
+                        error: function(response){
+                         // alert("Tomcat restart script resturns "+response.message);
+                          alert("Unable to connect to monitor service !!");
+                       ///$('#stop').html(response);
+                        //alert(resonse)
+
+                    }
+                 });
+                });
+            });
+
+        </script>    
+
+
+
+<script>
+            $(function()
+            {
+                $('#clickme2').click(function(){
+                    $('#show').text("");
+                    $('#show').text("");
+                    //alert('Starting Tomcat .....');
+                    alert("Starting tomcat . Please wait !!");
+                    $('#show').text("Startup in progress...");
+                    $.ajax({
+                        url: "/start",
+                        type: "POST",
+                        datatype:"json",
+                        success: function(response){
+                          //alert("Tomcat restart script resturns "+response.message);
+                         // alert("Tomcat restart Successful !!!");
+                        $('#show').text(response);
+                        //alert(resonse.message);
+                        },
+                        error: function(response){
+                         // alert("Tomcat restart script resturns "+response.message);
+                        //alert("Tomcat restart failed")
+                        alert("Unable to connect to monitor service !!");
+                        //$('#start').html(response);
+                        //alert(response.message);
+                    }
+                 });
+                });
+            });
+
+        </script>
+
+
+
+<div class="row">
+	<div class="right-align">
+		<div class="col s6">
+		<a id="clickme2" class="waves-effect waves-light btn-large green z-depth-5">Start Tomcat</a>
+		</div>
+	</div>
+	<div class="left-align">
+		<div class="col s6 ">
+		<a id="clickme" class="waves-effect waves-light btn-large red z-depth-5">Stop Tomcat</a>
+		</div>
+	</div>
+</div>
+
+ <div class="center-align black-text"> 
+                <strong><div id="show"></div></strong>
+</div>
+
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="static/js/materialize.min.js"></script>
+	<script type="text/javascript" src="static/js/tilt.jquery.min.js"></script>
+</body>
+</html>
