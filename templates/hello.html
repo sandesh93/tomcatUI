@@ -19,10 +19,10 @@ margin-top:300px;
             $(function()
             {
                 $('#clickme').click(function(){
-                    $('#show').text("");
-                    $('#show').text("");
+                    $('#stop').text("");
+                    $('#start').text("");
                     alert('Shutting Down tomcat . Please Wait !!');
-                    $('#show').text("Shutdown in progress ...");
+                    $('#stop').text("Shutdown in progress ...");
                     $.ajax({
                         url: "/stop",
                         type: "POST",
@@ -30,7 +30,7 @@ margin-top:300px;
                         success: function(response){
                           //alert("Tomcat restart script resturns "+response.message);
                          // alert("Tomcat restart Successful !!!");
-                        $("#show").text(response);
+                        $("#stop").html(response);
                        // alert(resonse)
                         },
                         error: function(response){
@@ -52,11 +52,11 @@ margin-top:300px;
             $(function()
             {
                 $('#clickme2').click(function(){
-                    $('#show').text("");
-                    $('#show').text("");
+                    $('#start').text("");
+                    $('#stop').text("");
                     //alert('Starting Tomcat .....');
                     alert("Starting tomcat . Please wait !!");
-                    $('#show').text("Startup in progress...");
+                    $('#start').text("Startup in progress...");
                     $.ajax({
                         url: "/start",
                         type: "POST",
@@ -64,7 +64,7 @@ margin-top:300px;
                         success: function(response){
                           //alert("Tomcat restart script resturns "+response.message);
                          // alert("Tomcat restart Successful !!!");
-                        $('#show').text(response);
+                        $('#start').html(response);
                         //alert(resonse.message);
                         },
                         error: function(response){
@@ -86,17 +86,16 @@ margin-top:300px;
 	<div class="right-align">
 		<div class="col s6">
 		<a id="clickme2" class="waves-effect waves-light btn-large green z-depth-5">Start Tomcat</a>
+		<div id="start" class="valign-wrapper"></div>
+		
 		</div>
 	</div>
 	<div class="left-align">
 		<div class="col s6 ">
 		<a id="clickme" class="waves-effect waves-light btn-large red z-depth-5">Stop Tomcat</a>
+		<div id="stop" class="valign-wrapper"></div>
 		</div>
 	</div>
-</div>
-
- <div class="center-align black-text"> 
-                <strong><div id="show"></div></strong>
 </div>
 
 

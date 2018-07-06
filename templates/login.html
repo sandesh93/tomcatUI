@@ -22,7 +22,7 @@
 						<div class="col s12 center-align">
 						    <form action="" method="post">
 							<input type="text" id="input_textarea" name="username" value="{{ request.form.username }}" placeholder="Username">
-							<input type="password" id="txtPassword" name="password" value="{{ request.form.password }}" placeholder="Password">
+							<input type="password" id="input_textarea" name="password" value="{{ request.form.password }}" placeholder="Password">
 							{% if error %}
 							<p class="error"><strong>Error:</strong> {{ error }}
 							{% endif %}
@@ -42,15 +42,5 @@
 	<script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="static/js/materialize.min.js"></script>
 	<script type="text/javascript" src="static/js/tilt.jquery.min.js"></script>
-
-	<script type="text/javascript" src="static/js/string.js"></script>
-	<script type="text/javascript" class="col s12 center-align" >
-	
-	$('#txtPassword').change(function(e){
-		var encodedPassword = Base64.encode($(this).val());
-		$(this).val(encodedPassword);
-	})
-	
-	</script>
 </body>
 </html>

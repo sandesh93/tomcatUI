@@ -1,7 +1,6 @@
 import subprocess
 from flask import Flask, render_template,redirect, url_for, request
 from subprocess import Popen, PIPE, STDOUT
-import base64
  
 app = Flask(__name__)
  
@@ -19,11 +18,7 @@ def hello():
 def login():
     error = None
     if request.method == 'POST':
-	password = request.form['password']
-	decodePassword = request.form['password'].decode('base64')
-	#decodePassword = base64.b64decode(password)
-        if request.form['username'] == 'admin' and decodePassword == 'admin':
-        #if request.form['username'] == 'admin' and request.form['password'] == 'admin':
+        if request.form['username'] == 'admin' and request.form['password'] == 'admin':
             error = 'Login success!!!'
             return render_template('hello.html', error=error)
         else:
